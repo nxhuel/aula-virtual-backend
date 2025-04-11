@@ -87,37 +87,12 @@
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
+                            <version>1.5.5.Final</version>
                         </path>
                     </annotationProcessorPaths>
                     <release>${java.version}</release>
                 </configuration>
             </plugin>
-
-            <!--			Error en method builder: no reconoce la clase -->
-            <!--			<plugin>-->
-            <!--				<groupId>org.apache.maven.plugins</groupId>-->
-            <!--				<artifactId>maven-compiler-plugin</artifactId>-->
-            <!--				<configuration>-->
-            <!--					<annotationProcessorPaths>-->
-            <!--						<path>-->
-            <!--							<groupId>org.projectlombok</groupId>-->
-            <!--							<artifactId>lombok</artifactId>-->
-            <!--						</path>-->
-            <!--					</annotationProcessorPaths>-->
-            <!--				</configuration>-->
-            <!--			</plugin>-->
-            <!--			<plugin>-->
-            <!--				<groupId>org.springframework.boot</groupId>-->
-            <!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
-            <!--				<configuration>-->
-            <!--					<excludes>-->
-            <!--						<exclude>-->
-            <!--							<groupId>org.projectlombok</groupId>-->
-            <!--							<artifactId>lombok</artifactId>-->
-            <!--						</exclude>-->
-            <!--					</excludes>-->
-            <!--				</configuration>-->
-            <!--			</plugin>-->
         </plugins>
     </build>
 
