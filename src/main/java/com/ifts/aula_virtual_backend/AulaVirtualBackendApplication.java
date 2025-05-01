@@ -1,9 +1,9 @@
 package com.ifts.aula_virtual_backend;
 
-import com.ifts.aula_virtual_backend.persistence.entity.PermissionEntity;
-import com.ifts.aula_virtual_backend.persistence.entity.RoleEntity;
-import com.ifts.aula_virtual_backend.persistence.entity.RoleEnum;
-import com.ifts.aula_virtual_backend.persistence.entity.UserEntity;
+import com.ifts.aula_virtual_backend.dto.NotesConsultationDto;
+import com.ifts.aula_virtual_backend.persistence.entity.*;
+import com.ifts.aula_virtual_backend.persistence.repository.SubjectInscribedRepository;
+import com.ifts.aula_virtual_backend.persistence.repository.SubjectRepository;
 import com.ifts.aula_virtual_backend.persistence.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
@@ -31,7 +32,7 @@ public class AulaVirtualBackendApplication
     private PasswordEncoder passwordEncoder;
 
     @Bean
-    CommandLineRunner init(UserRepository userRepository)
+    CommandLineRunner init(UserRepository userRepository, SubjectRepository subjectRepository, SubjectInscribedRepository subjectInscribedRepository)
     {
         return args ->
         {
@@ -69,7 +70,7 @@ public class AulaVirtualBackendApplication
                     .build();
 
 //            Users
-            UserEntity userSantiago = UserEntity.builder()
+            StudentEntity studentSantiago = StudentEntity.builder()
                     .dni("46131227")
                     .username("Santiago")
                     .lastname("Martinez")
@@ -78,34 +79,37 @@ public class AulaVirtualBackendApplication
                     .accountNoExpired(true)
                     .accountNoLocked(true)
                     .credentialNoExpired(true)
-                    .roles(Set.of(roleAdmin, roleProfessor))
+                    .roles(Set.of(roleStudent))
+                    .legajo("3898")
                     .build();
 
-            UserEntity userNicolas = UserEntity.builder()
-                    .dni("45131227")
-                    .username("Nicolas")
-                    .lastname("Tisera")
+            StudentEntity studentDaiana = StudentEntity.builder()
+                    .dni("46131226")
+                    .username("Daiana")
+                    .lastname("Lopez")
                     .password(passwordEncoder.encode("1234"))
                     .isEnabled(true)
                     .accountNoExpired(true)
                     .accountNoLocked(true)
                     .credentialNoExpired(true)
                     .roles(Set.of(roleStudent))
+                    .legajo("5898")
                     .build();
 
-            UserEntity userDaniela = UserEntity.builder()
-                    .dni("24131227")
-                    .username("Daniela")
-                    .lastname("Perez")
+            ProfessorEntity professorPablo = ProfessorEntity.builder()
+                    .dni("46131228")
+                    .username("Pablo")
+                    .lastname("Gonzalez")
                     .password(passwordEncoder.encode("1234"))
                     .isEnabled(true)
                     .accountNoExpired(true)
                     .accountNoLocked(true)
                     .credentialNoExpired(true)
-                    .roles(Set.of(roleProfessor))
+                    .roles(Set.of(roleAdmin, roleProfessor))
+                    .legajo("7898")
                     .build();
 
-            userRepository.saveAll(List.of(userSantiago, userNicolas, userDaniela));
+            userRepository.saveAll(List.of(studentSantiago, studentDaiana, professorPablo));
         };
     }
 

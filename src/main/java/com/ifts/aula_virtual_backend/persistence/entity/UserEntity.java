@@ -5,16 +5,18 @@ import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
-import lombok.Builder;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_type")
 @Table(name = "user")
-public class UserEntity
+public abstract class UserEntity
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
