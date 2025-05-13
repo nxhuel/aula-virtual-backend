@@ -25,7 +25,7 @@ public class ProfessorEntity extends UserEntity
     private String professorTitle;
 
     @Column(name = "contract")
-    private ContractEnum contract;
+    private String contract;
 
     @Column(name = "contract_pdf")
     private String contractPdf;

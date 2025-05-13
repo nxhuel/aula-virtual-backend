@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface NotesConsultationService
 {
-    void uploadNotes(NotesUploadDto notesUploadDto);
+    void uploadNotes(String dni, NotesUploadDto notesUploadDto);
 
     List<NotesConsultationDto> getAllNotesByDni(String dni);
 }

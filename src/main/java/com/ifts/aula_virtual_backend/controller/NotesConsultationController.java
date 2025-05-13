@@ -24,7 +24,7 @@ public class NotesConsultationController
     @PreAuthorize("hasAnyRole('ADMIN', 'PROFESSOR')")
     public ResponseEntity<String > uploadNotes(@RequestBody NotesUploadDto notesUploadDto)
     {
-        notesConsultationService.uploadNotes(notesUploadDto);
+        notesConsultationService.uploadNotes(notesUploadDto.getDni(), notesUploadDto);
         return new ResponseEntity<>("Notas subidas correctamente", HttpStatus.OK);
     }
 

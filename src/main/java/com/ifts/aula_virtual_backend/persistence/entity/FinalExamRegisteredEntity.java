@@ -21,14 +21,15 @@ public class FinalExamRegisteredEntity
     @Column(name = "registration_number")
     private Integer registrationNumber;
 
-    @OneToOne(targetEntity = SubjectInscribedEntity.class, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "id_subject_iscribed")
+    @ManyToOne
+    @JoinColumn(name = "id_subject_inscribed")
     private SubjectInscribedEntity subjectInscribed;
 
-    @Column(name = "final_date")
-    private LocalDate finalDate;
+    @ManyToOne
+    @JoinColumn(name = "final_exam_id")
+    private FinalExamEntity finalExam;
 
-    @OneToOne(targetEntity = ProfessorEntity.class, cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "id_professor")
     private ProfessorEntity professor;
 

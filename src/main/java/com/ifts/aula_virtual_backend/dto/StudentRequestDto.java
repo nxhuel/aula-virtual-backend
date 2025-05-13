@@ -5,14 +5,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class NotesUploadDto
+public class StudentRequestDto
 {
     private String dni;
-    private String subjectInscribed;
-    private Integer finalCourseGrade;
-    private Integer finalExamGrade;
+    private String legajo;
+    private String username;
+    private String lastname;
+    private String password;
+    private Set<Long> roleId;
+    private String academicPlan;
 }

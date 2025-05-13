@@ -11,10 +11,15 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserLoginResponseDto
+public class ProfessorRequestDto
 {
     private String dni;
+    private String legajo;
     private String username;
     private String lastname;
-    private Set<String> roles;
+    private String password;
+    private Set<Long> roleId;
+    private String professorTitle;
+    private String contract;
+    private String contractPdf;
 }

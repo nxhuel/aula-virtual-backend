@@ -5,14 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class NotesUploadDto
+public class FinalExamDto
 {
-    private String dni;
-    private String subjectInscribed;
-    private Integer finalCourseGrade;
-    private Integer finalExamGrade;
+    private String academicPlanEnum;
+    private String subject;
+    private LocalDate finalDate;
 }

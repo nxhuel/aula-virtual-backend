@@ -2,6 +2,7 @@ package com.ifts.aula_virtual_backend;
 
 import com.ifts.aula_virtual_backend.dto.NotesConsultationDto;
 import com.ifts.aula_virtual_backend.persistence.entity.*;
+import com.ifts.aula_virtual_backend.persistence.repository.ProgramRepository;
 import com.ifts.aula_virtual_backend.persistence.repository.SubjectInscribedRepository;
 import com.ifts.aula_virtual_backend.persistence.repository.SubjectRepository;
 import com.ifts.aula_virtual_backend.persistence.repository.UserRepository;
@@ -32,7 +33,7 @@ public class AulaVirtualBackendApplication
     private PasswordEncoder passwordEncoder;
 
     @Bean
-    CommandLineRunner init(UserRepository userRepository, SubjectRepository subjectRepository, SubjectInscribedRepository subjectInscribedRepository)
+    CommandLineRunner init(UserRepository userRepository, SubjectRepository subjectRepository, SubjectInscribedRepository subjectInscribedRepository, ProgramRepository programRepository)
     {
         return args ->
         {
@@ -68,6 +69,27 @@ public class AulaVirtualBackendApplication
                     .roleEnum(RoleEnum.PROFESSOR)
                     .permissions(Set.of(createPermission, readPermission, updatePermission))
                     .build();
+
+//            PlanAcademics
+            ProgramEntity oldPlanSystemsAnalyst = ProgramEntity.builder()
+                    .academicPlan(AcademicPlanEnum.TECNICO_SUPERIOR_EN_ANALISIS_DE_SISTEMAS_VIEJO_PLAN)
+                    .duration(3.0)
+                    .studyPlanPdf("http://www.ifts21.edu.ar/pdf/sistemas-materias.pdf")
+                    .build();
+
+            ProgramEntity systemsAnalyst = ProgramEntity.builder()
+                    .academicPlan(AcademicPlanEnum.TECNICO_SUPERIOR_EN_ANALISIS_DE_SISTEMAS)
+                    .duration(2.5)
+                    .studyPlanPdf("http://www.ifts21.edu.ar/pdf/sistemas-materias.pdf")
+                    .build();
+
+            ProgramEntity publicAdministration = ProgramEntity.builder()
+                    .academicPlan(AcademicPlanEnum.TECNICO_SUPERIOR_EN_ADMINISTRACION_PUBLICA_CON_ORIENTACION_MUNICIPAL)
+                    .duration(3.0)
+                    .studyPlanPdf("http://www.ifts21.edu.ar/pdf/administracion-materias.pdf")
+                    .build();
+
+            programRepository.saveAll(List.of(oldPlanSystemsAnalyst, systemsAnalyst, publicAdministration));
 
 //            Users
             StudentEntity studentSantiago = StudentEntity.builder()

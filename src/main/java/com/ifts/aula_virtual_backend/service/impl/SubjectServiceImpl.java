@@ -44,6 +44,7 @@ public class SubjectServiceImpl implements SubjectService
         {
             SubjectDto subjectDto = new SubjectDto(
                     subject.getCode(),
+                    subject.getAcademicPlan(),
                     subject.getName(),
                     subject.getYear(),
                     subject.getPeriod(),

@@ -14,11 +14,14 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Entity
 @Table(name = "subject")
-public class SubjectEntity
+public class  SubjectEntity
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long code;
+
+    @Column(name = "academic_plan")
+    private AcademicPlanEnum academicPlan;
 
     @Column(name = "name")
     private String name;
