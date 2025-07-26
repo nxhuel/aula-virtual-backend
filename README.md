@@ -1,6 +1,7 @@
 # Aula Virtual - Backend
 
 Este proyecto corresponde al backend de un sistema de Aula Virtual desarrollado como parte de la Tecnicatura en Análisis de Sistemas. Está orientado a la gestión académica de usuarios, materias, exámenes y roles dentro de un entorno educativo.
+> Repositorio Frontend: https://github.com/nxhuel/aula-virtual-frontend
 
 ## 🧩 Características principales
 
@@ -90,3 +91,4 @@ Sistema de roles y permisos para gestionar el acceso a distintas funcionalidades
 3. Ejecuta el proyecto
   ```bash
   mvn spring-boot:run
+  ```
